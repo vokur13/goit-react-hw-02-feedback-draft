@@ -1,9 +1,9 @@
-import Feedback from 'Components/Feedback/Feedback';
+import { Feedback } from 'components/Feedback';
 
 export const App = () => {
   return (
-    <div>
-      <Feedback initialValue={0} />
-    </div>
+    <>
+      <Feedback />
+    </>
   );
 };

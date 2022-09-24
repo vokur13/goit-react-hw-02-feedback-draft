@@ -1,0 +1,6 @@
+.Stat__item {
+  display: flex;
+}
+.Stat__title {
+  margin-right: 16px;
+}
