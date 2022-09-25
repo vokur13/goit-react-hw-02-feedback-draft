@@ -15,6 +15,7 @@ export const StyledButton = styled.button`
   background-color: ${props =>
     props.disabled ? props.theme.colors.muted : props.theme.colors.primary};
   color: ${props => props.theme.colors.white};
+  transition: background-color 250ms linear;
   cursor: pointer;
   &:hover:not(:disabled),
   &:focus:not(:disabled) {
