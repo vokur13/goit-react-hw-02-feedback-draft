@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import { Section } from '../components/Section';
 import { FeedbackOptions } from '../components/FeedbackOptions';
 import { Statistics } from '../components/Statistics';
+import { Notification } from '../components/Notification';
 
 export class App extends Component {
   static defaultProps = {
@@ -34,22 +36,34 @@ export class App extends Component {
     );
     return ((positiveFeedback / this.countTotalFeedback()) * 100).toFixed(2);
   };
+  checkForData = () => {
+    return Object.values(this.state).some(item => item > 0);
+  };
 
   render() {
     const { good, neutral, bad } = this.state;
     return (
       <>
-        <FeedbackOptions
-          options={this.state}
-          onLeaveFeedback={this.countFeedback}
-        />
-        <Statistics
-          good={good}
-          neutral={neutral}
-          bad={bad}
-          total={this.countTotalFeedback}
-          positivePercentage={this.countPositiveFeedbackPercentage}
-        />
+        <Section title="Please leave feedback">
+          <FeedbackOptions
+            options={this.state}
+            onLeaveFeedback={this.countFeedback}
+          />
+        </Section>
+        <Section title="Statistics">
+          {!this.checkForData() && (
+            <Notification message="There is no feedback" />
+          )}
+          {this.checkForData() && (
+            <Statistics
+              good={good}
+              neutral={neutral}
+              bad={bad}
+              total={this.countTotalFeedback}
+              positivePercentage={this.countPositiveFeedbackPercentage}
+            />
+          )}
+        </Section>
       </>
     );
   }
