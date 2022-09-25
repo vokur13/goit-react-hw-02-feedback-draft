@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const StyledButton = styled.button`
   display: inline-flex;
   align-items: center;
+  text-transform: uppercase;
   gap: ${props => props.theme.space[2]}px;
   margin: ${props => props.theme.space[0]}px;
   padding-top: ${props => props.theme.space[3]}px;
