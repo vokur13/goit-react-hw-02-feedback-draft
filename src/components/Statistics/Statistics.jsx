@@ -26,9 +26,7 @@ export const Statistics = ({
           <StatText>Total {total()}</StatText>
         </StatItem>
         <StatItem>
-          <StatText>
-            StatTextositive feedback {positivePercentage() + '%'}
-          </StatText>
+          <StatText>Positive feedback {positivePercentage() + '%'}</StatText>
         </StatItem>
       </Box>
     </Box>
