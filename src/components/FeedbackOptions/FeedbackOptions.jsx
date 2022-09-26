@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Box } from '../Box';
 import { Button } from '../Button';
 // import { HiEmojiHappy } from 'react-icons/hi';
 
 export const FeedbackOptions = ({ options, onLeaveFeedback }) => {
   return (
-    <div>
+    <Box width={1} display="flex" alignItems="center">
       {Object.entries(options).map(([key]) => {
         return (
           <Button
@@ -18,7 +19,7 @@ export const FeedbackOptions = ({ options, onLeaveFeedback }) => {
           </Button>
         );
       })}
-    </div>
+    </Box>
   );
 };
 

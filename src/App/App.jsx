@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Box } from '../components/Box';
 import { Section } from '../components/Section';
 import { FeedbackOptions } from '../components/FeedbackOptions';
 import { Statistics } from '../components/Statistics';
@@ -44,26 +45,32 @@ export class App extends Component {
     const { good, neutral, bad } = this.state;
     return (
       <>
-        <Section title="Please leave feedback">
-          <FeedbackOptions
-            options={this.state}
-            onLeaveFeedback={this.countFeedback}
-          />
-        </Section>
-        <Section title="Statistics">
-          {!this.checkForData() && (
-            <Notification message="There is no feedback" />
-          )}
-          {this.checkForData() && (
-            <Statistics
-              good={good}
-              neutral={neutral}
-              bad={bad}
-              total={this.countTotalFeedback}
-              positivePercentage={this.countPositiveFeedbackPercentage}
-            />
-          )}
-        </Section>
+        <Box as="main">
+          <Box mb={2} p={2} width="50%" as="section">
+            <Section title="Please leave feedback">
+              <FeedbackOptions
+                options={this.state}
+                onLeaveFeedback={this.countFeedback}
+              />
+            </Section>
+          </Box>
+          <Box p={2} width="50%" as="section">
+            <Section title="Statistics">
+              {!this.checkForData() && (
+                <Notification message="There is no feedback" />
+              )}
+              {this.checkForData() && (
+                <Statistics
+                  good={good}
+                  neutral={neutral}
+                  bad={bad}
+                  total={this.countTotalFeedback}
+                  positivePercentage={this.countPositiveFeedbackPercentage}
+                />
+              )}
+            </Section>
+          </Box>
+        </Box>
       </>
     );
   }

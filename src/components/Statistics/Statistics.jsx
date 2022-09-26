@@ -1,33 +1,44 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { Box } from 'components/Box';
+import { StatItem, StatText } from './Statistics.styled';
 
 export const Statistics = ({
   good,
   neutral,
   bad,
   total,
-  positivePercentage = 0,
+  positivePercentage,
 }) => {
   return (
-    <div>
-      <div>
-        <ul>
-          <li>
-            <p>Good {good}</p>
-          </li>
-          <li>
-            <p>Neutral {neutral}</p>
-          </li>
-          <li>
-            <p>Bad {bad}</p>
-          </li>
-          <li>
-            <p>Total {total()}</p>
-          </li>
-          <li>
-            <p>Positive feedback {positivePercentage() + '%'}</p>
-          </li>
-        </ul>
-      </div>
-    </div>
+    <Box>
+      <Box as="ul">
+        <StatItem>
+          <StatText>Good {good}</StatText>
+        </StatItem>
+        <StatItem>
+          <StatText>Neutral {neutral}</StatText>
+        </StatItem>
+        <StatItem>
+          <StatText>Bad {bad}</StatText>
+        </StatItem>
+        <StatItem>
+          <StatText>Total {total()}</StatText>
+        </StatItem>
+        <StatItem>
+          <StatText>
+            StatTextositive feedback {positivePercentage() + '%'}
+          </StatText>
+        </StatItem>
+      </Box>
+    </Box>
   );
+};
+
+Statistics.propTypes = {
+  good: PropTypes.number.isRequired,
+  neutral: PropTypes.number.isRequired,
+  bad: PropTypes.number.isRequired,
+  total: PropTypes.func.isRequired,
+  positivePercentage: PropTypes.func.isRequired,
 };
