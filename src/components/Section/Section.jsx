@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Box } from '../Box';
-// import { SectionTitle } from './SectionTitle.styled';
 
 export const Section = ({ title, children }) => {
   return (
