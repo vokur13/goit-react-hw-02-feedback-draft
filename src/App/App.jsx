@@ -23,8 +23,9 @@ export class App extends Component {
     return Object.entries(this.state);
   };
   countFeedback = key => {
+    const { step } = this.props;
     this.setState(prevState => ({
-      [key]: prevState[key] + this.props.step,
+      [key]: prevState[key] + step,
     }));
   };
   countTotalFeedback = () => {
